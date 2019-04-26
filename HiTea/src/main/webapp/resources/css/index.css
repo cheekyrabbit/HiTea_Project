@@ -1,0 +1,148 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: 'NanumGothic';
+	src: url("resources/font/NanumGothic.ttf") format('truetype');
+}
+
+body{
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	background-color: #E7ECEF;
+	/*overflow: hidden;*/
+	font-family: NanumGothic;
+}
+
+*:focus {
+	outline: none;
+}
+
+#theTopTable{
+	width: 100%;
+	border-spacing: 0;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 40px;
+	z-index: 99;
+}
+
+#theTopTd{
+	width: 100%;
+	background-color:#274554;
+	height: 40px;
+	padding: 0px;
+}
+
+#topLogo{
+	margin-left: 16px;
+	max-height: 24px;
+	vertical-align: middle;
+}
+
+#mainTopTable{
+	width: 1000px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-spacing: 0px;
+}
+
+#contentPage {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	border-spacing: 0px;
+}
+
+#contentPage tr td {
+	padding: 0px;
+}
+
+#mainSeachInput{
+	font-size: 10.5pt;
+	text-align: center;
+	width: 300px;
+	height: 25px;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	vertical-align: middle;
+}
+
+#mainSeachButton{
+	max-height: 25px;
+	vertical-align: middle;
+}
+
+#mainSeachTd{
+	padding-left: 90px;
+}
+#SiteTitleArea {
+	padding-right: 24px;
+}
+
+#etseachButton{
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+		
+.profileDiv {
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.profileNickname {
+	color: #FFFFFF;
+	font-size: 10pt;
+	vertical-align: middle;
+}
+
+.siteArrow {
+	color: #FAC03B;
+	font-size: 10pt;
+	vertical-align: middle;
+}
+
+.memberMyVarious {
+	position: fixed;
+	top: 15px; 
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+.mmvTable {
+	font-size: 10pt;
+	text-align: center;
+	width: 80px;
+	border-spacing: 0px;
+}
+
+.mmvTable tr td {
+	padding: 5px;
+}
+
+.memberMyPageTd:hover {
+	color: #274554;
+	cursor: pointer;
+	background-color: #FAC03B;
+}	
+
+.memberLogoutTd:hover {
+	color: #274554;
+	cursor: pointer;
+	background-color: #FAC03B;
+}
+
+.profileDiv:hover, 
+.profileNickname:hover, 
+.siteArrow:hover {
+	cursor: pointer;
+}

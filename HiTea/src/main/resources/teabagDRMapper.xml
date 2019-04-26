@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.teabag.tb.dr.TeabagDRMapper">
+	<insert id="writeFile">
+		insert into hitea_dataroom values(hitea_dataroom_seq.nextval, #{hd_id}, #{hd_title}, #{hd_fname}, #{hd_tno}, 'f', sysdate)
+	</insert>
+	<insert id="writePhoto">
+		insert into hitea_dataroom values(hitea_dataroom_seq.nextval, #{hd_id}, #{hd_title}, #{hd_fname}, #{hd_tno}, 'p', sysdate)
+	</insert>
+	<select id="getPhotoByTNo" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom" resultType="com.ht.hitea.teabag.tb.dr.Dataroom">
+		select * from (
+		select rownum as rn, hd_no, hd_id, hd_title, hd_fname, hd_tno, hd_ftype, hd_date, hm_nickname from (
+		select * from hitea_dataroom, hitea_member where hd_id = hm_id and hd_tno = #{hd_tno} and hd_ftype='p' order by hd_date
+		)
+		) where rn &gt;= #{min} and rn &lt;= #{max} order by rn desc
+		
+	</select>
+	<select id="getFileByTNo" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom" resultType="com.ht.hitea.teabag.tb.dr.Dataroom">
+		select * from (
+		select rownum as rn, hd_no, hd_id, hd_title, hd_fname, hd_tno, hd_ftype, hd_date, hm_nickname from (
+		select * from hitea_dataroom, hitea_member where hd_id = hm_id and hd_tno = #{hd_tno} and hd_ftype='f' order by hd_date
+		)
+		) where rn &gt;= #{min} and rn &lt;= #{max} order by rn desc
+		
+	</select>
+	<delete id="deleteFile" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom">
+		delete from hitea_dataroom where hd_no = #{hd_no}
+	</delete>
+	<select id="countDRPhoto" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom" resultType="java.lang.Integer">
+		select count(*) from hitea_dataroom where hd_tno = #{hd_tno} and hd_ftype='p'
+	</select>
+	<select id="countDRFile" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom" resultType="java.lang.Integer">
+		select count(*) from hitea_dataroom where hd_tno = #{hd_tno} and hd_ftype='f'
+	</select>
+	<select id="getDRByNo" parameterType="com.ht.hitea.teabag.tb.dr.Dataroom" resultType="com.ht.hitea.teabag.tb.dr.Dataroom">
+		select * from hitea_dataroom where hd_no = #{hd_no}
+	</select>
+</mapper>

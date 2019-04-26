@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+.memberIdPwSearchDiv{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.memberIdPwSearchTable {
+	margin-left: 20px;
+	margin-top: 20px;
+	border-spacing: 40px;
+}
+
+.memberIPSHm_name, 
+.memberIPSHm_email, 
+.memberIPSHm_id, 
+.memberIPSHm_pw_answer {
+	font-size: 10.5pt;
+	width: 272px;
+	padding: 4px 4px 3px 3px;
+	border: none;
+	border-bottom: lightgray solid 2px;
+}
+
+.memberIPSIdSearchBut, 
+.memberIPSPwSearchBut {
+	color: white;
+	font-size: 14px;
+	width: 280px;
+	padding: 6px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberIPSIdSearchBut:hover, 
+.memberIPSPwSearchBut:hover {
+	cursor: pointer;
+	background-color: #274554;
+}
+
+.memberIdSearchResultDiv, 
+.memberPwSearchResultDiv {
+	height: 20px;
+	color: red;
+	font-size: 13px;
+}
+
+.memberHm_pw_question{
+	margin-top: 5px;	
+}
+

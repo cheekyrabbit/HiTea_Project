@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+
+#makeBandTable{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#makeTeabagLogoImg {
+	height: 200px;
+	margin-top: 60px;
+	margin-bottom: 40px;
+}
+
+#makeTeabagCheckTd{
+	padding: 30px;
+}
+
+#makeTeabagNoticeDiv {
+	font-size: 10.5pt;
+	text-align: left;
+	width: 500px;
+	background-color: white;
+	border: #E0E0E0 solid 1px;
+	padding: 10px;
+}
+
+#makeTeabagNoticeDiv div {
+	margin-bottom: 5px;
+}
+
+.check {
+	vertical-align: middle;
+}
+
+#htCheckSpan {
+	font-size: 10.5pt;
+	vertical-align: middle;
+}
+
+.makeTeabagOptionTitle {
+	color: #274554;
+	font-size: 10.5pt;
+	font-weight: 600;
+	margin-right: 10px;
+}
+
+.makeTeabagOptionDiv {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.ht_nameInput{
+	font-size: 10.5pt;
+	width: 280px;
+	padding: 5px;
+	border: none;
+	border-bottom: #E0E0E0 solid 2px;
+	outline: none;
+	background-color: white;
+}
+
+.ht_nameInput::placeholder{
+	color: gray;
+	font-size: 10.5pt;
+}
+
+.ht_categorySelect{
+	width: 180px;
+	font-size: 10.5pt;	
+	padding: 2px 5px 5px 2px;
+	border: none;
+	border-bottom: #E0E0E0 solid 2px;
+	outline: none;
+	background-color: white;
+}
+
+.ht_categorySelect option {
+	color: gray;
+}
+
+.ht_minageInput, 
+.ht_maxageInput {
+	border: #FAC03B;
+	border-bottom: #274554 solid 2px;
+	width: 280px;
+	font-size: 12pt;
+	color: #FAC03B;
+	background: none;
+	padding: 5px;	
+	margin-left: -10px;
+	margin-top:10px;
+	font-size: 10pt;
+	font-weight: 700;		
+}
+
+#tb_name_overlap_result {
+	font-size: 10.5pt;
+}
+
+#button123{
+	color:#fff;
+	font-size: 10.5pt;
+	width: 200px;
+	position: relative;
+	padding: 6px;
+	margin-top: 20px;
+	margin-bottom: 100px;
+	border: none;
+	border-radius: 5px;
+	outline:none;
+	background: #FAC03B;
+	cursor: pointer;
+	transition:800ms ease all;
+}
+
+#button123:hover{
+	background: #274554;
+	color: white;
+	border-radius: 5px;
+}
+
+#button123:before, 
+#button123:after {
+	content:'';
+	position:absolute;
+	top:0;
+	right:0;
+	height:2px;
+	width:0;
+	background: #5474a1;
+	transition: 400ms ease all;
+}
+
+#button123:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+
+#button123:hover:before, 
+#button123:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
+

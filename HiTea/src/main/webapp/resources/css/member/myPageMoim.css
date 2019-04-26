@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+.myPageMoimH{
+		
+}
+
+.myPageMoimHr{
+		
+}
+
+.memberMyPageMyTBagJSPTable, 
+.memberMyPageAffiliatedTBagJSPTable {
+	width: 1000px;
+	border-spacing: 0px;
+}
+
+.memberMyPageAffiliatedTBagJSPTable {
+	margin-top: 20px;
+	margin-bottom: 80px;
+}
+
+.memberMyPageMyTBagJSPTd, 
+.memberMyPageAffiliatedTBagJSPTd {
+	width: 100%;
+	padding-left: 67px;
+	padding-top: 20px;
+}
+
+.memberMyTBagTable, 
+.memberAffiliatedTBagTable {
+	width: 160px;
+	height: 200px;
+	margin-left: 30px;	
+	margin-top: 20px;
+	margin-bottom: 20px;
+	float: left;
+	border: #33691E solid 2px;
+	border-radius: 10px;
+	border-spacing: 0px;
+	background-color: white;
+}
+
+.memberMyTBagPhotoFrontImg, 
+.memberAffiliatedTBagPhotoFrontImg {
+	position: relative;
+	display: inline-block; 
+	width: 90px;
+	height: 90px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	border: #E0E0E0 solid 1px;
+	border-radius: 50%;
+}
+
+.memberMyTBagNicknameDiv, 
+.memberAffiliatedTBagNicknameDiv {
+	font-size: 13pt;
+	font-weight: 800;
+	margin-bottom: 5px;
+}
+
+.memberMyTBagSelfIntroductionDiv, 
+.memberAffiliatedTBagSelfIntroductionDiv {
+	font-size: 10pt;
+}

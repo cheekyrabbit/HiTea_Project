@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+.memberPwSearchDiv{
+	text-align: center;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+}
+
+.memberPwSearchSpan{
+	font-size: 25px;
+	font-weight: 500;
+	background: linear-gradient(to right, #274555, #2FA599);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	margin-left: 65px;
+}
+
+.memberPwSearchBut {
+	color: white;
+	font-size: 14px;
+	width: 280px;
+	padding: 6px;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberPwSearchBut:hover {
+	cursor: pointer;
+	background-color: #274554;
+}

@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.memberDeleteDiv{
+	width: 770px;
+	margin-top: 70px;
+	margin-bottom: 200px;
+}
+
+.memberDeleteContent {
+	font-size: 16px;
+	font-weight: 800;
+	color: #274555;
+}
+
+.memberDeleteContent div {
+	margin-top: 8px;
+}
+
+.memberDeleteBut {
+	width: 280px;
+	color: white;
+	font-size: 16px;	
+	padding: 6px;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;	
+}
+
+.memberDeleteBut:hover {
+	cursor: pointer;
+	background-color: #274555;
+}

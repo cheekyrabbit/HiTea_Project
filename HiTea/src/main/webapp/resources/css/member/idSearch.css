@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+
+.memberIdSearchDiv{
+	text-align: center;
+	width: 1000px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.memberIdSearchSpan{
+	font-size: 30px;
+	font-weight: 500;
+	background: linear-gradient(to right, #274555, #2FA599);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	margin-left: 35px;
+}
+
+.memberIdSearchLoginBut{
+	width: 200px;
+	border: none;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #fdc23e;
+	border-radius: 5px;	
+	margin-top: 30px;
+	margin-left: 40px;
+	
+}
+
+.memberIdSearchLoginBut, 
+.memberIdSearchPwSearchBut {
+	color: white;
+	font-size: 14px;
+	width: 280px;
+	padding: 6px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberIdSearchPwSearchBut {
+	margin-left: 40px;
+}
+
+.memberIdSearchLoginBut:hover, 
+.memberIdSearchPwSearchBut:hover {
+	cursor: pointer;
+	background-color: #274554;
+}

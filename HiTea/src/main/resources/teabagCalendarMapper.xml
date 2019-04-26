@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.teabag.tb.calendar.TeabagCalendarMapper">
+	<insert id="writeCalendar" parameterType="com.ht.hitea.teabag.tb.calendar.Calendar">
+		insert into hitea_calendar values (hitea_calendar_seq.nextval, #{hc_tno}, #{hc_category}, #{hc_title}, #{hc_content}, #{hc_start}, #{hc_end})
+	</insert>
+	<select id="getCalendarByTNo" parameterType="com.ht.hitea.teabag.tb.calendar.Calendar" resultType="com.ht.hitea.teabag.tb.calendar.Calendar">
+		select * from hitea_calendar where hc_tno = #{hc_tno}
+	</select>
+	<delete id="deleteCalendarByNo" parameterType="com.ht.hitea.teabag.tb.calendar.Calendar">
+		delete from hitea_calendar where hc_no = #{hc_no}
+	</delete>
+</mapper>

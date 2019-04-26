@@ -1,0 +1,464 @@
+@CHARSET "UTF-8";
+
+textarea.hs_txt {
+	min-height: 40px;
+}
+
+#checkBox{
+	position: fixed;
+	margin-left:20px;
+	top: 75px;
+	left: auto;
+	width: 255px;
+	height: 500px;
+	border: #E0E0E0 solid 1px;
+	background-color: white;
+}
+
+.heartImg{
+	max-width: 30px;
+}
+
+.reportBtn {
+	color: #274554;
+	font-size: 9pt;
+	font-weight: 600;
+	padding: 2px 8px 3px 8px;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+	vertical-align: middle;
+	background-color: #27455430;
+}
+
+.reportBtn:hover {
+	cursor: pointer;
+	background-color: #27455460;
+}
+
+.reportImg{
+	max-width: 30px;
+}
+
+.snsMsgTableArea {
+	border-spacing: 0px;
+	padding: 0px;
+}
+
+.snsMemberTd1 {
+	width: 42px;
+}
+
+.snsMemberTd3 {
+	width: 20px;
+}
+
+.snsHs_hm_nicknameSpan{
+	font-size: 11pt;
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+.snsMemberImgSpan{
+	position: relative;
+	display: inline-block; 
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.snsMemberImgSpan:hover, 
+.snsHs_hm_nicknameSpan:hover {
+	cursor: pointer;
+}
+
+.snsDButtonImg {
+	width: 13px;
+}
+
+.snsDButtonImg:hover {
+	cursor: pointer;
+}
+
+.snsDate {
+	color: gray;
+	font-size: 8pt;
+}
+
+
+
+
+
+/* ---------------------------------------------- */
+
+.snsdragDropDiv {
+    text-align: center;
+    width: 482px;
+    padding: 0px 8px 8px 8px;
+    background-color: white;
+    border-left: #E0E0E0 solid 1px;
+    border-right: #E0E0E0 solid 1px;
+    border-bottom: #E0E0E0 solid 1px; 
+}
+
+.snsaaDiv{
+	width: 100px;
+}
+
+.snsaaTd{
+	width: 100px;
+}
+
+.snsaaTd2{
+	width: 250px;
+}
+
+.snsaa{
+	width: 100%;
+	height: 100%;
+}
+
+.snsb{
+	width: 100%; 
+	height: 100%; 
+	position: absolute;
+}
+
+	
+.snsbxslider {
+	width: 480px; 
+	height: 200px;
+}
+
+.snsWriteTable {
+	width: 500px;
+    background-color: white;
+    padding: 8px 8px 0px 8px; 
+    margin-top: 3px;
+    border: #E0E0E0 solid 1px;
+    border-spacing: 5px;
+}
+
+.hs_txt {
+	width: 98%;
+	heght: 100%;
+	resize: none;
+	outline: none;
+	padding: 4px;
+	border-radius: 5px;
+	border: none;
+}
+
+.hs_txt::placeholder{
+	color: gray;
+	font-size: 10pt;
+	font-weight: 500;
+}
+
+.hs_txt2{
+	color: #274554;
+	width: 98%;
+	height: 18px;
+	resize: none;
+	outline: none;
+	padding: 4px;
+	border: none;
+	background-color: #FAC03B30;
+}
+
+.hs_txt2::placeholder{
+	color: gray;
+	font-size: 10pt;
+	font-weight: 500;
+}
+
+.hs_txt3{
+	color: #274554;
+	width: 98%;
+	height: 18px;
+	resize: none;
+	outline: none;
+	padding: 4px;
+	border: none;
+	background-color: #FAC03B30;
+}
+
+.hs_txt3::placeholder{
+	color: gray;
+	font-size: 10pt;
+	font-weight: 500;
+}
+
+#snsWriteSummon {
+	width: 40px;
+}
+
+#snsWriteButton {
+	width: 40px;
+}
+
+#snsWriteSummon:hover {
+	cursor: pointer;
+}
+
+#snsWriteButton {
+	cursor: pointer;
+}
+
+
+.snsdragdiv{
+	width: 100%; 
+}
+
+.snsMsgTable{
+	width: 500px;
+	outline: none;
+	padding: 10px;
+	margin-bottom: 30px;
+	border:1px solid #E0E0E0;
+	border-spacing: 2px; 
+	background-color: white;
+}
+ 
+.snsTxt{
+	text-align: left;
+	font-size: 10.5pt;
+	width: 474px;
+	min-height: 40px;
+	margin-top: 10px;
+}
+
+.snsTxt2, .snsTxt3{
+	border: none;
+	border-bottom: 1px solid #274554;
+	width: 350px;
+	resize: none;
+	outline: none;
+}
+
+.snsHashTag a {
+	color: #266799;
+	font-size: 10.5pt;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.teabagHashTag a {
+	color: #FA9353;
+	font-size: 10.5pt;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.snsHashTag a:hover, 
+.teabagHashTag a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.snsHRTd {
+	margin-top: 20px;
+}
+
+.heartImg {
+	height: 26px;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+.heartCount {
+	vertical-align: middle;
+}
+
+.reportImg {
+	height: 26px;
+	margin-left: 4px;
+	vertical-align: middle;
+}
+
+.heartImg:hover, 
+.reportImg:hover {
+	cursor: pointer;
+}
+
+.snsReInput{
+	font-size: 10.5pt;
+	width: 412px;
+	padding: 2px 5px 2px 5px;
+	border: none;
+	border-bottom: #274554 solid 1px;
+}
+
+.snsReInput::placeholder{
+	color: gray;
+	font-size: 10.5pt;
+}
+
+.snsReButton{
+	color: white;
+	font-size: 9pt;
+	width: 50px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 2px;
+	border: #274554 solid 1px;
+	outline: none;
+	background-color: #274554;
+}
+
+.snsReButton:hover {
+	color: #274554;
+	border: #FAC03B solid 1px;
+	background-color: #FAC03B;
+}
+
+.snsReMainRepl {
+	width: 100%;
+	display: inline-block;
+}
+
+.snsReTable {
+	font-size: 10.5pt;
+}
+
+.snsreImgSpan {
+	display: inline-block; 
+	width: 28px;
+	height: 28px;
+	margin-top: 5px;
+	margin-right: 5px;
+	border-radius: 50%;
+	vertical-align: middle;
+	position: relative;
+}
+
+.snsrenickname {
+	font-size: 10.5pt;
+	font-weight: 800;
+	vertical-align: middle;
+}
+
+.snsReTxt, 
+.snssm2 {
+	font-size: 10.5pt;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	vertical-align: middle;
+}
+
+.snsReDate, 
+.snssm3 {
+	color: gray;
+	font-size: 6pt;
+	margin-right: 3px;
+	vertical-align: middle;
+}
+
+.srDeleteImg {
+	width: 8px;
+	vertical-align: middle;
+}
+
+.snsRessA, 
+.snsRessB {
+	color: #274554;
+	font-size: 10.5pt;
+}
+
+.snsreImgSpan:hover, 
+.snsrenickname:hover, 
+.srDeleteImg:hover, 
+.snsRessA:hover, 
+.snsRessB:hover {
+	cursor: pointer;
+}
+
+
+/* ********** sns file table ********** */
+#snsfileTable {
+	width: 100%;
+}
+
+#snsfileTable tr td {
+	padding: 3px;
+}
+
+#snstabFileImage {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 9pt;
+	width: 100px;
+	background-color: #274554;
+}
+
+#snstabFileName {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 9pt;
+	width: 250px;
+	background-color: #274554;
+}
+
+#snstabFileDel {
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 9pt;
+	width: 80px;
+	background-color: #274554;
+}
+
+#snstabFileView {
+    width: 70px;
+    text-align: center;
+	color: #FAC03B;
+}
+
+/* ****** ****** */
+#snsfileInput {
+	filter:alpha(opacity:0); 
+	opacity:0; 
+	width:60px; 
+	height:20px; 
+}
+
+#tb_dr_file_input {
+	filter:alpha(opacity:0); 
+	opacity:0; 
+	width:60px; 
+	height:20px; 
+}
+
+.yw_file_wrap {
+	display:inline-block; 
+	width:60px; 
+	height:20px;
+ 	background-image: url(../../img/teabag/file.jpg); 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	border: #D5D5D5 solid 1px;
+	
+	position: absolute; top:0; right:0;
+}
+
+.yw_file_wrap:HOVER {
+	background-image: url(../../img/teabag/dd.jpg); 
+	cursor: pointer;
+}
+
+.yw_wrap {
+	width:200px; 
+	position:relative;
+} 
+
+.yw_file_route {
+	float:left; 
+	width:130px; 
+	height:16px; 
+	background-color:#f6f6f6; 
+	border:1px solid #eee; 
+	color:#777;
+}

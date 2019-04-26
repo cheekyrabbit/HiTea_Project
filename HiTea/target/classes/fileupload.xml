@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.sns.FileUploadMapper">
+
+	
+	<insert id="snsWrite2" parameterType="com.ht.hitea.sns.SNSBean">
+		insert into hitea_sns values(hitea_sns_seq.nextval,#{hs_hm_id}, #{hs_hm_nickname}, #{hs_txt}, #{hs_txt2}, #{hs_txt3}, #{hs_photo_front}, sysdate)
+	</insert>
+	
+	<select id="getAllSNSMsg2" resultType="com.ht.hitea.sns.SNSBean">
+		select * from hitea_sns order by hs_date desc
+	</select>
+	
+	<insert id="fileWrite2" parameterType="com.ht.hitea.sns.FileUploadBean2">
+		insert into hitea_files values(#{hfile_no}, #{hfile_img}, #{hfile_video})
+	</insert>
+	
+	<select id="getOne2" resultType="com.ht.hitea.sns.SNSBean">
+		select * from hitea_sns where hs_date = (select max(hs_date) from hitea_sns)
+	</select>
+	
+	<select id="getAllfile2" resultType="com.ht.hitea.sns.FileUploadBean2" parameterType="com.ht.hitea.sns.SNSBean">
+		select * from hitea_files where hfile_no=#{hs_no}
+	</select>
+	
+	<select id="getSNSMsg" resultType="com.ht.hitea.sns.SNSBean" parameterType="com.ht.hitea.sns.SNSBean">
+		select * from hitea_sns where hs_no=#{hs_no}
+	</select>
+	
+	<delete id="snsDelete" parameterType="com.ht.hitea.sns.SNSBean">
+		delete from hitea_sns where hs_no=#{hs_no}
+	</delete>
+	
+	<select id="getShowSNS" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns 
+				order by hs_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end} 
+		order by rn desc		
+	</select>
+	
+	<select id="getAllSNSCount" resultType="Integer">
+		select count(*) from hitea_sns
+	</select>
+	
+	<select id="snsPageCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(hs_hm_id) from hitea_sns where hs_hm_id = #{content}
+	</select>
+	
+	<select id="snsPage" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns 
+				where hs_hm_id = #{content}
+				order by hs_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc		
+	</select>
+	<select id="snsPageHeartCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(hh_hs_no) from hitea_heart where hh_heart_hm_id = #{content}
+	</select>
+	
+	<select id="snsPageHeart" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns,hitea_heart 
+				where hh_hs_no=hs_no and hs_no in (select hh_hs_no from hitea_heart where hh_heart_hm_id = #{content})
+				order by hh_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc		
+	</select>
+
+	
+
+
+</mapper>

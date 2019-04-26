@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.memberJoinStepFourDiv{
+	text-align: center;
+	width: 500px;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.memberJoinResultSpan {
+	font-size: 25px;
+	font-weight: 500;
+	background: linear-gradient(to right, #274555, #2FA599);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.memberHomeGoButB {
+	color: white;
+	font-size: 14px;
+	width: 280px;
+	padding: 6px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberHomeGoButB:hover {
+	cursor: pointer;
+	background-color: #274554;
+}

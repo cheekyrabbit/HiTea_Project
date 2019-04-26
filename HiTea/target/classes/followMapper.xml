@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.follow.FollowMapper">
+	<select id="following" parameterType="com.ht.hitea.follow.Follow" resultType="Integer">
+		select count(hf_following_hm_id) from hitea_follow where hf_following_hm_id=#{hf_following_hm_id}
+	</select>
+	<select id="follower" parameterType="com.ht.hitea.follow.Follow" resultType="Integer">
+		select count(hf_follower_id) from hitea_follow where hf_follower_id=#{hf_follower_id}
+	</select>
+	
+	<select id="followerCheck" parameterType="com.ht.hitea.follow.Follow" resultType="com.ht.hitea.follow.Follow">
+		select * from hitea_follow where hf_follower_id=#{hf_follower_id} and hf_following_hm_id=#{hf_following_hm_id}
+	</select>
+	<insert id="followerReg" parameterType="com.ht.hitea.follow.Follow">
+		insert into hitea_follow values(#{hf_following_hm_id},#{hf_follower_id},sysdate)
+	</insert>
+	<delete id="followerDelete" parameterType="com.ht.hitea.follow.Follow" >
+		delete from hitea_follow where hf_following_hm_id=#{hf_following_hm_id} and hf_follower_id=#{hf_follower_id}
+	</delete>
+	
+	
+	<select id="getShowSNSFollow" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns
+				where hs_no in (select hs_no from hitea_sns where hs_hm_id = #{content})  or hs_no in (select hs_no from hitea_sns,hitea_follow where hf_follower_id=hs_hm_id and hf_following_hm_id=#{content})
+				order by hs_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc		
+	</select>
+	<select id="getShowSNSFollowCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(rn)
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns
+				where hs_no in (select hs_no from hitea_sns where hs_hm_id = #{content})  or hs_no in (select hs_no from hitea_sns,hitea_follow where hf_follower_id=hs_hm_id and hf_following_hm_id=#{content})
+				order by hs_date
+				)
+			) 
+		order by rn desc		
+	</select>
+</mapper>

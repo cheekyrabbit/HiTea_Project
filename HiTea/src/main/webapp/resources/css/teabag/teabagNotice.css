@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+
+#mainTeabagNotice{
+	margin-left: 12px;
+    width: 200px;
+  
+    font-size: 13px;
+    background-color: white;
+    padding-top: 10px;
+    border: #E0E0E0 solid 1px;
+}
+
+#noticeSpace {
+	text-align: center;
+}
+
+#teabagNotice{
+	color: #274554;
+	font-size: 9pt;
+	font-weight: 500;
+	text-align: left;
+	width: 170px;
+	height: 100px;
+	padding: 5px;
+	margin: 5px 0px 8px 0px;
+	border-radius: 5px;
+	background-color: #FAF4C0;
+	display: inline-block;
+	word-wrap: break-word;
+	vertical-align:middle;
+}
+
+#calendarMini{
+}
+
+#teabagNoticeUpdate{
+	padding-right: 10px;
+	font-size: 8pt;
+	color: #274554;
+	margin-bottom: 5px;
+}
+
+
+#teabagNoticeUpdateSpan{
+	transition: all ease 0.5s 0s;
+	cursor: pointer;
+}
+
+#teabagNoticeUpdateSpan:HOVER {
+	background-color: #274554;
+	color: white;
+	
+}
+#teabagNoticeName{
+	font-size: 12pt;
+	font-weight: 800;
+	color: #274554;
+	padding-left: 15px;
+	padding-bottom: 5px;
+}

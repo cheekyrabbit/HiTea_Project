@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+.memberUpdatePwCheckDiv{
+	width: 100%;
+	margin-top: 150px;
+	margin-bottom: 250px;
+}
+
+.memberUpdatePwCheckHm_pw {
+	font-size: 10.5pt;
+	width: 273px;
+	padding: 4px 4px 3px 3px;
+	border: none;
+	border-bottom: lightgray solid 2px;
+}
+
+.memberUpdatePwCheckResultText{
+	color: red;
+	width: 280px;
+	font-size: 10pt;
+	font-weight: 600;
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.memberUpdatePwCheckBut{
+	color: white;
+	width: 280px;
+	font-size: 14px;
+	padding: 6px;	
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberUpdatePwCheckBut:hover {
+	cursor: pointer;
+	background-color: #274554;
+}

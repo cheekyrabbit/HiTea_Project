@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.teabag.tb.member.TeabagMemberMapper">
+	<select id="getAllMemberByTNo" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="com.ht.hitea.teabag.tb.TeabagMember">
+		select * from (
+		select rownum as rn, htm_id, htm_tno, hm_photo_front, hm_nickname, htm_date from (
+		select * from hitea_teabagmember, hitea_member where htm_id = hm_id and htm_tno = #{htm_tno} order by htm_date desc
+		)
+		) where rn &gt;= #{min} and rn &lt;= #{max} order by rn desc
+	</select>
+	<select id="countAllMemberByTNo" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="java.lang.Integer">
+		select count(*) from hitea_teabagmember where htm_tno = #{htm_tno} 
+	</select>
+	<insert id="sendJoinReq" parameterType="com.ht.hitea.teabag.tb.member.JoinReq">
+		insert into hitea_joinreq values(hitea_joinreq_seq.nextval, #{hj_id}, #{hj_tno}, sysdate)
+	</insert>
+	<select id="getJoinReqByTNo" parameterType="com.ht.hitea.teabag.tb.member.JoinReq" resultType="com.ht.hitea.teabag.tb.member.JoinReq">
+		select * from hitea_joinreq, hitea_member where hj_tno = #{hj_tno} and hj_id = hm_id
+	</select>
+	<select id="getJoinReqByNo" parameterType="com.ht.hitea.teabag.tb.member.JoinReq" resultType="com.ht.hitea.teabag.tb.member.JoinReq">
+		select * from hitea_joinreq where hj_no = #{hj_no}
+	</select>
+	<delete id="deleteJoinReq">
+		delete from hitea_joinreq where hj_no = #{hj_no}
+	</delete>
+	<insert id="sendPageNotice" parameterType="com.ht.hitea.teabag.tb.member.PageNotice">
+		insert into hitea_pagenotice values (hitea_pagenotice_seq.nextval, #{hpn_id}, #{hpn_tno}, #{hpn_content}, #{hpn_type}, sysdate)	
+	</insert>
+	<select id="getMemberByTNo" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="com.ht.hitea.teabag.tb.TeabagMember">
+		select * from hitea_teabagmember, hitea_member where htm_tno = #{htm_tno} and htm_id = hm_id
+	</select>
+	<update id="delegateTeabag" parameterType="com.ht.hitea.teabag.tb.TeabagMember">
+		update hitea_teabag set ht_leaderid = #{htm_id} where ht_no = #{htm_tno} 
+	</update>
+	<select id="getPageNoticeById" parameterType="com.ht.hitea.teabag.tb.member.PageNotice" resultType="com.ht.hitea.teabag.tb.member.PageNotice">
+	select*
+		from(
+			select rownum as rn, hpn_no, hpn_id, hpn_tno, hpn_content, hpn_type, hpn_date
+			from (
+				select * from hitea_pagenotice
+				where (hpn_id=#{hpn_id} and hpn_type = 'solo')
+				or (hpn_type = 'all' and hpn_tno in 
+				(select ht_no from hitea_teabag 
+				where ht_no in 
+				(select htm_tno from hitea_teabagmember 
+				where htm_id = #{hpn_id} and htm_date &lt; hpn_date
+				)))
+				order by hpn_date desc
+				) 
+			)
+		where rn &gt;=1 and rn &lt;=4
+		order by rn
+	</select>
+	<select id="getPageNoticeByTNo" parameterType="com.ht.hitea.teabag.tb.member.PageNotice" resultType="com.ht.hitea.teabag.tb.member.PageNotice">
+		select * from hitea_pagenotice where hpn_tno= #{hpn_tno} order by hpn_date
+	</select>
+</mapper>

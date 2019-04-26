@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.hash.HashMapper">
+	<insert id="hashReg" parameterType="com.ht.hitea.hash.Hash">
+		insert into hitea_hash values(#{hhash_hs_no},#{hhash_text})
+	</insert>
+	<select id="hashNoAll" parameterType="com.ht.hitea.sns.SNSBean" resultType="com.ht.hitea.hash.Hash">
+		select * from hitea_hash where hhash_hs_no = #{hs_no}
+	</select>
+</mapper>

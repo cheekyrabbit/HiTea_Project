@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.messenger.MessengerMapper">
+	<select id="getFollowList"
+		parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select * from hitea_member 
+		where hm_id in (
+			select hf_follower_id 
+			from hitea_follow 
+			where hf_following_hm_id = #{hm_id}
+		) order by hm_nickname
+	</select>
+	<select id="getFollowListByNickname"
+		parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select * from hitea_member 
+		where hm_id in (
+			select hf_follower_id 
+			from hitea_follow 
+			where hf_following_hm_id = #{hm_id}
+		) and hm_nickname like '%'||#{hm_nickname}||'%' 
+		order by hm_nickname
+	</select>
+	<select id="checkMsgList"
+		parameterType="com.ht.hitea.messenger.MessengerList"
+		resultType="com.ht.hitea.messenger.MessengerList">
+		select * from hitea_messenger_list 
+		where hmsl_m1 = #{hmsl_m1} and hmsl_m2 = #{hmsl_m2}
+	</select>
+	<select id="getMsgListByNo"
+		parameterType="com.ht.hitea.messenger.MessengerList"
+		resultType="com.ht.hitea.messenger.MessengerList">
+		select * from hitea_messenger_list 
+		where hmsl_no = #{hmsl_no}
+	</select>
+	<select id="getAllMsgList"
+		resultType="com.ht.hitea.messenger.MessengerList">
+		select * from hitea_messenger_list 
+		order by hmsl_last_date desc
+	</select>
+	<select id="getMsgListByLoginId"
+		parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.messenger.MessengerList">
+		select * from hitea_messenger_list 
+		where hmsl_m1 = #{hm_id} or hmsl_m2 = #{hm_id}  
+		order by hmsl_last_date desc
+	</select>
+	<select id="getRealMsgList"
+		parameterType="com.ht.hitea.messenger.MessengerList"
+		resultType="com.ht.hitea.messenger.MessengerList">
+		select * from hitea_messenger_list 
+		where (hmsl_m1 = #{hmsl_m1} and hmsl_m2 = #{hmsl_m2}) 
+			or (hmsl_m1 = #{hmsl_m2} and hmsl_m2 = #{hmsl_m1})
+	</select>
+	<insert id="regMsgList"
+		parameterType="com.ht.hitea.messenger.MessengerList">
+		insert into hitea_messenger_list 
+		values(
+			hitea_messenger_list_seq.nextval,
+			#{hmsl_m1}, 
+			#{hmsl_m2}, 
+			#{hmsl_last_txt1}, 
+			#{hmsl_last_txt2}, 
+			#{hmsl_last_date}
+		)
+	</insert>
+	<update id="updateMsgList"
+		parameterType="com.ht.hitea.messenger.MessengerList">
+		update hitea_messenger_list 
+		set hmsl_last_txt1 = #{hmsl_last_txt1}, 
+			hmsl_last_txt2 = #{hmsl_last_txt2}, 
+			hmsl_last_date = sysdate 
+		where hmsl_no = #{hmsl_no}
+	</update>
+	<update id="deleteMsgListForM1"
+		parameterType="com.ht.hitea.messenger.MessengerList">
+		update hitea_messenger_list 
+		set hmsl_last_txt1 = '@empty@'
+		where hmsl_no = #{hmsl_no}
+	</update>
+	<update id="deleteMsgListForM2"
+		parameterType="com.ht.hitea.messenger.MessengerList">
+		update hitea_messenger_list 
+		set hmsl_last_txt2 = '@empty@'
+		where hmsl_no = #{hmsl_no}
+	</update>
+</mapper>

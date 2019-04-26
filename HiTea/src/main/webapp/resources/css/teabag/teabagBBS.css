@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+#teabagBBS{
+	width: 100%;
+}
+
+.teabagBBSs {
+	width: 500px;
+	margin-bottom: 10px;
+	border-bottom: #FAC03B solid 2px;
+}
+
+#hb_content {
+	font-size: 10.5pt;
+	width: 400px;
+	height: 80px;
+	padding: 5px;
+	margin-left: 5px;
+	border: #E0E0E0 solid 1px;
+	outline: none;
+	background-color: #FFFFFF;
+	resize: none;
+}
+
+#tb_bbs_button1 {
+	color: white;
+	font-size: 9pt;
+	width: 60px;
+	height: 90px;
+	padding: 5px;
+	border: #E0E0E0 solid 1px;
+	background-color: #FAC03B;
+	vertical-align: top;
+}
+
+#tb_bbs_button1:hover {
+	cursor: pointer;
+	background-color: #274554;
+}
+
+#tb_bbs_button2 {
+	color: white;
+	font-size: 9pt;
+	width: 60px;
+	height: 90px;
+	padding: 5px;
+	border: #E0E0E0 solid 1px;
+	background-color: #274554;
+	vertical-align: top;
+}
+
+#tb_bbs_button2:hover {
+	cursor: pointer;
+	background-color: #FAC03B;
+}
+
+.tb_bbs_updateDelete {
+	color: white;
+	font-size: 9pt;
+	border: none;
+	background-color: #FAC03B;
+}
+
+.tb_bbs_updateDelete:hover {
+	cursor: pointer;
+	background-color: #274554;
+}
+
+.tb_bbs_paging {
+	color: #274554;
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.teabagBBSs {
+	padding: 8px;
+	margin-bottom: 10px;
+	border: #E0E0E0 solid 1px;
+	background-color: white;
+}
+
+.teabagBBSProfile {
+	position: relative;
+	display: inline-block; 
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	margin-right: 4px;
+}
+
+.tb_bbs_profileSpace {
+	width: 50px;
+}
+
+.tb_bbs_nickname {
+	color: #274554;
+	font-size: 14px;
+	font-weight: 800;
+}
+
+.tb_bbs_content {
+	font-size: 10.5pt;
+}
+
+.tb_bbs_contentDiv {
+	width: 500px;
+	display: inline-block;
+	word-wrap: break-word;
+}
+
+.tb_bbs_date {
+	color: lightgray;
+	font-size: 8pt;
+}

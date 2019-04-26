@@ -1,0 +1,164 @@
+@CHARSET "UTF-8";
+
+.memberMyPageUnderCoverTable {
+	width: 1000px;
+	height: 265px;
+	margin-top: 40px;
+	border-spacing: 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.memberMyPageTable {
+	color: white;
+	width: 1000px;
+	border-spacing: 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #607D8B10;
+	left: auto;
+	right: auto;
+	top: 80px;
+	position: absolute;
+}
+
+.MyPageTd1 {
+	text-align: right;
+	width: 220px;
+}
+
+.MyPageTd2 {
+	font-size: 14pt;
+	font-weight: 800;
+	width: 400px;
+}
+
+.MyPageTd3 {
+	padding-right: 20px;
+}
+
+.MyPageTd4 {
+	font-size: 9.5pt;
+}
+
+.MyPageSelfIntroductionDiv {
+	max-height: 50px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.memberHm_photo_frontDiv {
+	position: relative;
+	display: inline-block; 
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	margin-right: 20px;
+}
+
+.memberMyPageFollowBut{
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	border-radius: 5px;
+	padding: 3px 8px 5px 8px;
+	margin-right: 8px;
+	background: linear-gradient(to right, #455A6468, #607D8B38);
+}
+
+.memberMyPageFollowingBut{
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+	border: none;
+	border-radius: 5px;
+	padding: 3px 8px 5px 8px;
+	margin-right: 8px;
+	background: linear-gradient(to right, #455A6498, #607D8B68);
+}
+
+.memberMyPageFollowBut:hover, 
+.memberMyPageFollowingBut:hover {
+	cursor: pointer;
+		background: linear-gradient(to right, #455A64C8, #607D8B98);
+}
+
+.memberMyPageMenuTable {
+	color: white;
+	font-size: 12pt;
+	font-weight: 600;
+	text-align: center;
+	width: 1000px;
+	border-spacing: 0px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: #274554;
+}
+
+.memberMyPageMenuTable tr td {
+	width: 20%;
+	height: 70px;
+}
+
+.MyPageMenuTd1:hover, 
+.MyPageMenuTd2:hover {
+	color: #FAC03B;
+}
+
+.MyPageMenuIcon {
+	height: 24px;
+	margin-right: 4px; 
+	vertical-align: middle;
+}
+
+.MyPageMenuIcon:hover {
+	cursor: pointer;
+}
+
+.memberMyPageWritingBut, 
+.memberMyPageGoodBut, 
+.memberMyPageMoimBut, 
+.memberMyPageMemberUpdateBut, 
+.memberMyPageMemberWithdrawalBut {
+	vertical-align: middle;
+}
+
+.memberMyPageWritingBut:hover, 
+.memberMyPageGoodBut:hover, 
+.memberMyPageMoimBut:hover, 
+.memberMyPageMemberUpdateBut:hover, 
+.memberMyPageMemberWithdrawalBut:hover {
+	cursor: pointer;
+}
+
+.memberMyPageJSP{
+	width: 1000px;
+}
+
+.memberMyPageIncludeDiv {
+	width: 1000px;
+	padding-top: 40px;
+}
+
+.memberArrowImg{
+	width: 30px;
+}
+
+.memberArrowImgA{
+	width: 25px;
+	height: 25px;
+}
+
+.memberArrowImgDiv{
+	width: 35px;
+	padding-top: 5px;
+	position: fixed;
+ 	left: auto;
+ 	margin-left: 820px; 
+	top: 580px;
+	
+}

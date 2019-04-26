@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.member.MemberMapper">
+	<select id="getMemberByID" parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select * from hitea_member where hm_id=#{hm_id}
+	</select>
+
+	<insert id="join" parameterType="com.ht.hitea.member.Member">
+		insert into hitea_member
+		values(#{hm_id}, #{hm_pw}, #{hm_nickname}, #{hm_name},
+		#{hm_email}, #{hm_pw_question}, #{hm_pw_answer},
+		#{hm_selfIntroduction}, #{hm_photo_front}, #{hm_photo_back})
+	</insert>
+
+	<select id="idCheckJson" resultType="java.lang.Integer"
+		parameterType="com.ht.hitea.member.Member">
+		select count(hm_id) from hitea_member where
+		hm_id=#{hm_id}
+	</select>
+
+	<select id="nicknameCheckJson" resultType="java.lang.Integer"
+		parameterType="com.ht.hitea.member.Member">
+		select count(hm_nickname) from hitea_member where
+		hm_nickname=#{hm_nickname}
+	</select>
+
+	<select id="emailCheckJson" resultType="java.lang.Integer"
+		parameterType="com.ht.hitea.member.Member">
+		select count(hm_email) from hitea_member where
+		hm_email=#{hm_email}
+	</select>
+
+	<select id="idSearch" resultType="com.ht.hitea.member.Member"
+		parameterType="com.ht.hitea.member.Member">
+		select hm_id from hitea_member where hm_name =
+		#{hm_name} and hm_email = #{hm_email}
+	</select>
+
+	<update id="pwSearch" parameterType="com.ht.hitea.member.Member">
+		update hitea_member
+		set
+		hm_pw
+		= #{hm_pw}
+		where hm_id = #{hm_id} and hm_pw_question =
+		#{hm_pw_question} and
+		hm_pw_answer = #{hm_pw_answer}
+	</update>
+
+	<select id="temporarilyPwEmail" resultType="com.ht.hitea.member.Member"
+		parameterType="com.ht.hitea.member.Member">
+		select hm_email from hitea_member
+		where hm_id = #{hm_id}
+		and hm_pw_question = #{hm_pw_question} and
+		hm_pw_answer =
+		#{hm_pw_answer}
+	</select>
+
+	<select id="memberUpdatePwCheck" resultType="java.lang.Integer"
+		parameterType="com.ht.hitea.member.Member">
+		select count(hm_pw) from hitea_member where hm_id =
+		#{hm_id} and hm_pw = #{hm_pw}
+	</select>
+
+	<update id="memberUpdate" parameterType="com.ht.hitea.member.Member">
+		update hitea_member
+		set
+		hm_pw = #{hm_pw}, hm_selfIntroduction = #{hm_selfIntroduction},
+		hm_photo_front = #{hm_photo_front}, hm_photo_back = #{hm_photo_back}
+		where hm_id = #{hm_id}
+	</update>
+
+	<update id="memberDelete" parameterType="com.ht.hitea.member.Member">
+		update hitea_member
+		set
+		hm_pw = #{hm_pw}, hm_name = #{hm_name},
+		hm_email =#{hm_email}, hm_pw_question = #{hm_pw_question},
+		hm_pw_answer = #{hm_pw_answer},
+		hm_selfIntroduction =
+		#{hm_selfIntroduction}, hm_photo_front= #{hm_photo_front},
+		hm_photo_back = #{hm_photo_back}
+		where hm_id = #{hm_id} and hm_nickname
+		= #{hm_nickname}
+	</update>
+
+	<select id="yourPageInformation" parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select * from hitea_member
+		where hm_nickname = #{hs_hm_nickname}
+	</select>
+
+	<select id="memberFollow" parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select hf_follower_id, hf_following_hm_id, hm_id,
+		hm_nickname, hm_selfIntroduction, hm_photo_front
+		from
+		hitea_member,
+		hitea_follow
+		where hm_id = hf_following_hm_id
+		and
+		hf_follower_id =
+		#{hf_follower_id}
+		order by hf_date desc
+	</select>
+
+	<select id="memberFollowing" parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select hf_following_hm_id, hf_follower_id, hm_id,
+		hm_nickname,
+		hm_selfIntroduction, hm_photo_front
+		from hitea_member,
+		hitea_follow
+		where hm_id = hf_follower_id
+		and hf_following_hm_id =
+		#{hf_following_hm_id}
+		order by hf_date desc
+	</select>
+
+	<select id="myTBag" parameterType="com.ht.hitea.member.Member"
+		resultType="com.ht.hitea.member.Member">
+		select hm_id, ht_profilepic, ht_name, ht_category,ht_no
+		from
+		hitea_member, hitea_teabag
+		where hm_id = ht_leaderid
+		and hm_nickname =
+		#{hm_nickname}
+		order by ht_no desc
+	</select>
+
+	<select id="affiliatedTBag" parameterType="com.ht.hitea.member.Member" resultType="com.ht.hitea.member.Member">
+		select hm_id, hm_nickname, ht_profilepic, ht_name, ht_category,ht_no
+		from hitea_teabagmember, hitea_teabag, hitea_member
+		where ht_no = htm_tno
+		and htm_id != ht_leaderid
+		and htm_id = hm_id
+		and hm_nickname = #{hm_nickname}
+		order by ht_no desc
+	</select>
+	
+	<update id="memberSNSUpdate" parameterType="com.ht.hitea.member.Member">
+		update hitea_sns set hs_photo_front = #{hm_photo_front} where hs_hm_id = #{hm_id} 
+	</update>
+	<update id="memberSNSRelUpdate" parameterType="com.ht.hitea.member.Member">
+		update hitea_sns_repl set hsr_img = #{hm_photo_front} where hsr_hm_nickname = #{hm_nickname} 
+	</update>
+	
+	<select id="getAllMemberOrderByNickname" 
+		resultType="com.ht.hitea.member.Member">
+		select * from hitea_member 
+		order by hm_nickname
+	</select>
+	<select id="getMember" 
+		parameterType="com.ht.hitea.messenger.MessengerList"
+		resultType="com.ht.hitea.member.Member">
+		select hm_id, hm_nickname, hm_photo_front from hitea_member
+		where hm_id = #{hmsl_m1} 
+	</select>
+	<select id="getMember2"
+		parameterType="com.ht.hitea.messenger.MessengerList"
+		resultType="com.ht.hitea.member.Member">
+		select hm_id, hm_nickname, hm_photo_front from hitea_member
+		where hm_id = #{hmsl_m2} 
+	</select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.alram.AlramMapper">
+	<select id="alramAll" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.alram.Alram">
+		select*
+		from(
+			select rownum as rn,halarm_to_nickname,halarm_no,halarm_to_id,halarm_from_id,halarm_txt,halarm_date
+			from (
+				select * 
+				from hitea_alarm
+				where halarm_from_id = #{content} 
+					or (halarm_from_id = '새글' and halarm_to_id in (
+						select hm_id 
+						from hitea_member 
+						where hm_id in (
+							select hf_follower_id 
+							from hitea_follow 
+							where hf_following_hm_id=#{content} 
+								and hf_date &lt; halarm_date
+						)
+					)
+				)
+				order by halarm_date desc
+				)
+			) 
+		where rn &gt;=1 and rn &lt;=12  
+		order by rn
+	</select>
+	<insert id="alramRegHeart" parameterType="com.ht.hitea.alram.Alram">
+		insert into hitea_alarm values(hitea_alarm_seq.nextval,#{halarm_to_nickname},#{halarm_to_id},#{halarm_from_id},'좋아요',sysdate)
+	</insert>
+	<insert id="alramRegFollow" parameterType="com.ht.hitea.alram.Alram">
+		insert into hitea_alarm values(hitea_alarm_seq.nextval,#{halarm_to_nickname},#{halarm_to_id},#{halarm_from_id},'팔로우',sysdate)
+	</insert>
+	<insert id="alramRegSNS" parameterType="com.ht.hitea.alram.Alram">
+		insert into hitea_alarm values(hitea_alarm_seq.nextval,#{halarm_to_nickname},#{halarm_to_id},'새글','새글',sysdate)
+	
+	</insert>
+</mapper>

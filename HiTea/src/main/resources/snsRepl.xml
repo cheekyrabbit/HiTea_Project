@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.sns.SNSReplMapper">
+	
+	<insert id="snsReWrite" parameterType="com.ht.hitea.sns.SNSRepl">
+		insert into hitea_sns_repl values(hitea_sns_repl_seq.nextval, #{hsr_hs_no}, #{hsr_hm_nickname}, #{hsr_txt}, sysdate,#{hsr_img})
+	</insert>
+	
+	<select id="getAllRepl" resultType="com.ht.hitea.sns.SNSRepl" parameterType="com.ht.hitea.sns.SNSBean">
+		select * from (
+			select rownum as rn, hsr_no, hsr_hs_no, hsr_hm_nickname, hsr_txt, hsr_date, hsr_img from (select * from hitea_sns_repl where hsr_hs_no = #{hs_no} order by hsr_date desc))
+			where rn &gt;= 1 and rn &lt;= 3 order by rn desc
+	</select>
+	<select id="getAllRepl2" resultType="com.ht.hitea.sns.SNSRepl" parameterType="com.ht.hitea.sns.SNSBean">
+		select * from (
+			select rownum as rn, hsr_no, hsr_hs_no, hsr_hm_nickname, hsr_txt, hsr_date, hsr_img from (select * from hitea_sns_repl where hsr_hs_no = #{hs_no} order by hsr_date desc))
+			order by rn desc
+	</select>
+	<select id="getSNSRepl" parameterType="com.ht.hitea.sns.SNSRepl" resultType="com.ht.hitea.sns.SNSRepl">
+		select * from hitea_sns_repl where hsr_hm_nickname = #{hsr_hm_nickname} and hsr_hs_no = #{hsr_hs_no} and hsr_date = (select max(hsr_date) from hitea_sns_repl)
+		
+	</select>
+	
+		
+	<delete id="snsReDelete" parameterType="com.ht.hitea.sns.SNSRepl">
+		delete from hitea_sns_repl where hsr_no=#{hsr_no}
+	</delete>
+	
+	
+</mapper>

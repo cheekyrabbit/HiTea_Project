@@ -1,0 +1,110 @@
+@CHARSET "UTF-8";
+
+*:focus {
+	outline: none;
+}
+
+.memberLoginDiv{
+	width: 650px;
+	height: 350px; 
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.memberLoginResultDiv {
+	color: red;
+	font-size: 10.5pt;
+	text-align: right;
+	padding-bottom: 8px;
+}
+
+.memberImgDiv{
+	width: 300px;
+	height: 300px; 
+}
+
+.memberImg{
+	width: 300px;
+	height: 300px;
+}
+
+.memberLoginFormDiv{
+	width: 280px;
+ 	margin-top: -310px; 
+ 	margin-left: 350px;
+ 	padding-top: 80px; 
+}
+
+.memberLoginHm_id {
+	color: #274554;
+	font-size: 10.5pt;
+	width: 98%;
+	padding: 4px 4px 3px 3px;
+	border: none;
+	border-bottom: lightgray solid 2px;
+}
+
+.memberLoginHm_id::placeholder {
+	color: lightgray;
+}
+
+.memberLoginHm_pw {
+	color: #274554;
+	font-size: 10.5pt;
+	width: 98%;
+	padding: 4px 4px 3px 3px;
+	border: none;
+	border-bottom: lightgray solid 2px;
+}
+
+.memberLoginHm_pw::placeholder {
+	color: lightgray;
+}
+
+.memberHm_auto{
+	vertical-align: middle;
+}
+
+.memberLoginBtn {
+	color: white;
+	font-size: 13.5px;
+	font-weight: bold;
+	width: 100%;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberLoginBtn:hover {
+	cursor: pointer;
+	background-color: #274554;
+}
+
+.memeberLoginServiceDiv {
+	color: gray;
+	font-size: 9.5pt;
+	margin-top: 5px;
+}
+
+.memberLoginIdpwBtn {
+	color: gray;
+	font-size: 13px;
+	margin-left: 33px;
+}
+
+.memberLoginIdpwBtn:hover {
+	color: #FAC03B;
+	cursor: pointer;
+}
+
+.memberLoginJoinBtn {
+	color: gray;
+	font-size: 13px;
+}
+
+.memberLoginJoinBtn:hover {
+	color: #FAC03B;
+	cursor: pointer;
+}

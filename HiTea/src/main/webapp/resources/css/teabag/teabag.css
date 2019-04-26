@@ -1,0 +1,305 @@
+@CHARSET "UTF-8";
+
+#tb_bgPic {
+	width: 1000px;
+	height: 260px;
+}
+
+.TeabagProfileTable {
+	width: 1000px;
+	border-spacing: 0px;
+}
+
+.tb_profileDiv {
+	position: relative;
+	display: inline-block; 
+	width: 80px;
+	height: 80px;
+	border: #E7ECEF solid 1px;
+	border-radius: 50%;
+}
+
+#tb_profileDiv2{
+	margin-top: -85px;
+	margin-left: 70px;
+	width: 160px;
+	height: 160px;
+}
+
+.tb_profileDiv3 {
+	position: relative;
+	display: inline-block; 
+	width: 80px;
+	height: 80px;
+	border: #E7ECEF solid 5px;
+	border-radius: 50%;
+}
+
+.TeabagProfileAreaTd1 {
+	width: 245px;
+}
+
+.TeabagProfileAreaTd2 {
+	width: 500px;
+	
+	color: #274554;
+	font-size: 14pt;
+	font-weight: 800;
+	padding: 5px;
+}
+
+.teabag_set_img {
+	width: 18px;
+	margin-bottom: 2px;
+	vertical-align: middle;
+}
+
+.TeabagProfileIntroduceDiv {
+	font-size: 10.5pt;
+	height: 50px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+#tb_All{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#tb_teabagAllTr1{
+	height: 150px;
+}
+
+#tb_maketeabagTable{
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.tb_img1{
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+}
+
+.tb_teabagProfileDiv{
+	position: relative;
+	display: inline-block; 
+	border-radius: 50%;
+	border: #E0E0E0 solid 1px;
+	width: 90px;
+	height: 90px;
+}
+
+#tb_teabagTable{
+	width: 100%;
+	height: 800px;
+	margin-top: -7px;
+}
+
+#tb_teabagName{
+	width: 600px;
+}
+
+.tb_teabagETC{
+	height: 30px;
+}
+
+#tb_teabagMenu {
+	width: 178px;
+}
+
+#homeButtonTable1{
+	position: fixed;
+	margin-left:22px; 
+	top: 65px;
+	width: 50px;
+}
+
+#tb_teabagMenu1{
+	width: 138px;
+	padding: 12px;
+	background-color: white;
+	border: #E0E0E0 solid 1px;
+}
+
+.tb_teabagMenuTable {
+	text-align: center;
+	border-spacing: 0px;
+}
+
+.tb_teabagMenuImg {
+	height: 36px;
+	margin: 10px 8px 10px 2px;
+	vertical-align: middle;
+}
+
+.tb_teabagMenuSpan {
+	color: #274554;
+	font-size: 10.5pt;
+	font-weight: 800;
+	vertical-align: middle;
+}
+
+.tb_teabagMenuSpan:hover {
+	color: #FAC03B;
+	cursor: pointer;
+}
+
+
+.tb_basicSetting{
+	font-size: 14px;
+}
+
+#tb_setTeabagTable{
+	width: 500px;
+	margin-top: 2px;
+	border: #E0E0E0 solid 1px;
+	border-spacing: 10px;
+	background-color: white;
+}
+
+.tb_profileOptionTitle {
+	color: #274554;
+	font-size: 10.5pt;
+	font-weight: 600;
+	margin-right: 10px;
+}
+
+#tb_profilePic {
+	outline: none;
+	width: 200px;
+}
+
+#tb_set_introduce{
+	width: 99%;
+	height: 100px;
+	border: none;
+	border-bottom: #E0E0E0 solid 1px;
+	outline: none;
+	background-color: #E7ECEF;
+	resize: none;
+}
+
+.tb_set_minMax{
+	width: 40px;
+	background-color: #FFFFFF00;
+	border: none;
+	border-bottom: #274554 solid 2px;
+	outline: none;
+}
+
+#tb_set_button{
+	color: white;
+	font-size: 10pt;
+	width: 100px;
+	padding: 3px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	background-color: #FAC03B;
+}
+
+#tb_set_button:hover{
+	color: white;	
+	cursor: pointer;
+	background-color: #274554;
+}
+
+.TeabagServiceDiv {
+	height: 100%;
+	text-align: right;
+	margin-bottom: 32px;
+}
+
+.tb_join_btn {
+	color: white;
+	font-size: 10pt;
+	width: 80px;
+	padding: 3px 8px 3px 8px;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+	vertical-align: top;
+	background-color: #FAC03B;
+}
+
+.tb_join_btn:hover {
+	cursor: pointer;	
+	background-color: #FAC03BB5;
+}
+
+.tb_report_btn {
+	color: white;
+	font-size: 10pt;
+	padding: 3px 8px 3px 8px;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+	vertical-align: top;
+	background-color: #DE4F4F;
+}
+
+.tb_report_btn:hover {
+	cursor: pointer;
+	background-color: #DE4F4FB5;
+}
+
+#tb_report_img{
+	width: 30px;
+	margin-left: 10px;	
+}
+
+#tb_notice_update{
+	border: #274554 solid 2px;
+	margin-bottom: 10px;
+	width: 30px;
+	color: #274554;
+}
+
+#tb_notice_update:hover{
+	cursor: pointer;
+}
+
+.teabagNameSpan{
+	font-size: 13pt;
+	font-weight: 800;
+	margin-top: 5px;
+}
+
+.teabagCategorySpan{
+	font-size: 10pt;
+	margin-top: 5px;
+}
+
+.tb_div1{
+	background-color: white;
+	width: 152px;
+	height: 192px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	color:  #274554;
+}
+
+.tb_noticeDiv2 {
+}
+
+.tb_noticeDiv3 {
+	font-size: 9pt;
+	border-bottom: #274554 solid 2px;
+	width: 96%;
+	padding: 4px 0px 1px 6px;
+	margin-left: 5px;
+	transition: all ease 0.5s 0s;
+}
+
+.tb_noticeDiv3:HOVER {
+	background-color: #274554;
+	color: white;
+}
+
+.tb_noticeDiv {
+	color: #FAC03B;
+	font-weight: 800;
+	cursor: pointer;
+}

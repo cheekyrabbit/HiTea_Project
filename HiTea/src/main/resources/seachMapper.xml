@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.seach.SeachMapper">
+	<select id="memberSeach" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.member.Member">
+		select*
+		from(
+			select rownum as rn,hm_id,hm_photo_front,hm_nickname,hm_selfIntroduction
+			from (
+				select*
+				from hitea_member 
+				where hm_nickname like '%' ||  #{content} || '%'
+				order by hm_nickname desc
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc
+	</select>
+	<select id="memberSeachCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(hm_nickname) from hitea_member where hm_nickname like '%' ||  #{content} || '%'
+	</select>
+	<select id="memberSeachAll" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.member.Member">
+		select hm_id,hm_photo_front,hm_nickname,hm_selfIntroduction from hitea_member where hm_nickname like '%' ||  #{content} || '%'
+	</select>
+	
+	
+	
+	<select id="teabagSeach" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.seach.TeaBagSeach">
+		select*
+		from(
+			select rownum as rn,ht_no,ht_name,ht_category,ht_profilepic
+			from (
+				select*
+				from hitea_teabag 
+				where ht_name like '%' ||  #{content} || '%'
+				order by ht_name desc
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc
+	</select>
+	<select id="teabagSeachCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(ht_name) from hitea_teabag where ht_name like '%' ||  #{content} || '%'
+	</select>
+	
+	
+	
+	
+	
+	<select id="snsSeachAll" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select * from hitea_sns where hs_txt like '%' ||  #{content} || '%'
+	</select>
+	
+	<select id="snsSeachCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(*)
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns,hitea_hash 
+				where hs_no = hhash_hs_no and hhash_text = #{content}
+				order by hs_date
+				)
+			) 
+		order by rn desc
+	</select>
+	
+	<select id="snsSeach" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+		select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns,hitea_hash 
+				where hs_no = hhash_hs_no and hhash_text = #{content}
+				order by hs_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}  
+		order by rn desc		
+	</select>
+	
+</mapper>

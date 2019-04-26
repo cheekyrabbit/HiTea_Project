@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+.memberJoinStepTwoDiv{
+	width: 280px;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.memberJoinStepTwoHm_id, 
+.memberJoinStepTwoHm_pw, 
+.memberJoinStepTwoHm_nickname {
+	font-size: 10.5pt;
+	width: 280px;
+	padding: 4px 4px 3px 3px;
+	border: none;
+	border-bottom: lightgray solid 2px;
+}
+
+.memberJoinStepTwoIdCheck {
+	font-size: 10px;
+	font-weight: 500;
+ 	background: linear-gradient(to right, #D32F2F, #E91E63);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.memberJoinStepTwoNicknameCheck{
+	font-size: 10px;
+	font-weight: 500;
+ 	background: linear-gradient(to right, #D32F2F, #E91E63);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;		
+}
+
+.memberJoinStepThreeGoBut {
+	color: white;
+	font-size: 14px;
+	width: 280px;
+	padding: 6px;
+	border: none;
+	border-radius: 5px;	
+	background-color: #FAC03B;
+}
+
+.memberJoinStepThreeGoBut:hover {
+	cursor: pointer;
+	background-color: #274554;
+}

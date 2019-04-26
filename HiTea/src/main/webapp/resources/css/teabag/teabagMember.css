@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+#tb_memberList, 
+#tb_joinList {
+	color: #274554;
+	font-weight: 700;
+}
+
+#tb_memberList:hover, 
+#tb_joinList:hover {
+	cursor: pointer;
+}
+
+#tb_memberList{
+	border: #274554 solid 2px;
+}
+#tb_joinList{
+	border: #FAC03B solid 2px;
+}
+.tb_delegateDiv{
+	margin-right: 5px;
+	font-size: 13px;
+	border: #274554 solid 1px;
+}
+.tb_joinDiv{
+	margin-right: 5px;
+	font-size: 13px;
+	border: #FAC03B solid 1px;
+}
+.tb_joinATag{
+	text-decoration: none;
+	color: #274554;
+}

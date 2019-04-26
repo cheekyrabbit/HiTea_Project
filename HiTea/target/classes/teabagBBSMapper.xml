@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.teabag.tb.bbs.TeabagBBSMapper">
+	<insert id="writeBBS" parameterType="com.ht.hitea.teabag.tb.bbs.BBS">
+		insert into hitea_bbs values(hitea_bbs_seq.nextval, #{hb_id}, #{hb_content}, sysdate, #{hb_tno})
+	</insert>
+	<select id="getBBSByTNo" parameterType="com.ht.hitea.teabag.tb.bbs.BBS" resultType="com.ht.hitea.teabag.tb.bbs.BBS">
+		select * from hitea_bbs, hitea_member where hb_id = hm_id and hb_tno = #{hb_tno} order by hb_date desc
+	</select>
+	<select id="getBBSByNo" parameterType="com.ht.hitea.teabag.tb.bbs.BBS" resultType="com.ht.hitea.teabag.tb.bbs.BBS">
+		select * from HITEA_BBS where hb_no = #{hb_no}
+	</select>
+	<update id="updateBBS" parameterType="com.ht.hitea.teabag.tb.bbs.BBS" >
+		update hitea_bbs set hb_content=#{hb_content} where hb_no = #{hb_no}
+	</update>
+	<delete id="deleteBBS" parameterType="com.ht.hitea.teabag.tb.bbs.BBS">
+		delete from hitea_bbs where hb_no = #{hb_no}
+	</delete>
+	<select id="countBBS" parameterType="com.ht.hitea.teabag.tb.bbs.BBS" resultType="java.lang.Integer">
+		select count(*) from HITEA_BBS where hb_tno = #{hb_tno}
+	</select>
+	<select id="getBBSForPage" parameterType="com.ht.hitea.teabag.tb.bbs.MinMax" resultType="com.ht.hitea.teabag.tb.bbs.BBS">
+		select * from (select rownum as rn, hb_no, hb_id, hb_content, hb_date, hm_photo_front, hm_nickname from (select * from hitea_bbs, hitea_member where hb_id = hm_id and hb_tno=#{hb_tno} order by hb_date)) where rn &lt;= #{min} and rn &gt;= #{max} order by rn desc
+	</select>
+</mapper>

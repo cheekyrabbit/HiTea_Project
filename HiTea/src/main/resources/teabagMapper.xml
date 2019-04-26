@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.teabag.tb.TeabagMapper">
+	<insert id="makeTeabag" parameterType="com.ht.hitea.teabag.tb.Teabag">
+		insert into hitea_teabag values( hitea_teabag_seq.nextval, #{ht_name}, #{ht_category}, sysdate, #{ht_leaderid}, 'basicPro.png', 'basicBG.png', #{ht_introduce}, 1, #{ht_notice})
+	</insert>
+	<select id="countTeabagByMember" parameterType="com.ht.hitea.teabag.tb.Teabag" resultType="java.lang.Integer">
+		select count(*) from hitea_teabag where ht_leaderid=#{ht_leaderid}
+	</select>
+	<select id="getFourTeabags" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from (select rownum as rn, ht_no, ht_name, ht_category, ht_profilepic, ht_date, ht_notice from (select * from hitea_teabag order by ht_date desc)) where rn &gt;= 1 and rn &lt;= 4 
+	</select>
+	<select id="getByTNo" parameterType="com.ht.hitea.teabag.tb.Teabag" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabag where ht_no=#{ht_no}
+	</select>
+	<insert id="joinTeabag" parameterType="com.ht.hitea.teabag.tb.TeabagMember">
+		insert into hitea_teabagmember values(#{htm_id}, #{htm_tno}, sysdate)
+	</insert>
+	<select id="getMemberByTNoAndId" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="com.ht.hitea.teabag.tb.TeabagMember">
+		select * from hitea_teabagmember where htm_tno = #{htm_tno} and htm_id=#{htm_id}
+	</select>
+	<delete id="leaveTeabag" parameterType="com.ht.hitea.teabag.tb.TeabagMember">
+		delete from hitea_teabagmember where htm_tno = #{htm_tno} and htm_id = #{htm_id}
+	</delete>
+	<select id="countMemberByTNo" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="java.lang.Integer">
+		select count(*) from hitea_teabagmember where htm_tno = #{htm_tno}
+	</select>
+	<update id="updateCountMember" parameterType="com.ht.hitea.teabag.tb.Teabag">
+		update hitea_teabag set ht_count=#{ht_count} where ht_no=#{ht_no}
+	</update>
+	<update id="updateTeabag" parameterType="com.ht.hitea.teabag.tb.Teabag">
+		update hitea_teabag set ht_profilepic=#{ht_profilepic}, ht_bgpic=#{ht_bgpic}, ht_introduce=#{ht_introduce} where ht_no=#{ht_no}
+	</update>
+	<select id="getTeabagByLeaderId" parameterType="com.ht.hitea.teabag.tb.Teabag" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabag where ht_leaderid = #{ht_leaderid} and ht_date = (
+		select max(ht_date) from hitea_teabag)
+	</select>
+	<update id="updateNotice" parameterType="com.ht.hitea.teabag.tb.Teabag">
+		update hitea_teabag set ht_notice=#{ht_notice} where ht_no=#{ht_no}
+	</update>
+	<select id="getFourTeabagById" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from (select rownum as rn, ht_no, ht_name, ht_category, ht_profilepic, ht_date from (select * from hitea_teabagmember, hitea_teabag where htm_tno = ht_no and htm_id = #{htm_id} order by ht_date desc)) where rn &gt;= 1 and rn &lt;= 4 
+	</select>
+	<select id="getAllTeabagById" parameterType="com.ht.hitea.teabag.tb.TeabagMember" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabagmember, hitea_teabag where htm_tno = ht_no and htm_id = #{htm_id} order by ht_date desc
+	</select>
+	<select id="getAllTeabag" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabag order by ht_count desc
+	</select>
+	<select id="getTeabagByCategory" parameterType="com.ht.hitea.teabag.tb.Teabag" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabag where ht_category = #{ht_category}
+	</select>
+		<select id="getTeabagByName" parameterType="com.ht.hitea.teabag.tb.Teabag" resultType="com.ht.hitea.teabag.tb.Teabag">
+		select * from hitea_teabag where ht_name = #{ht_name}
+	</select>
+	<select id="getTeaBagSNS" parameterType="com.ht.hitea.Inquiry" resultType="com.ht.hitea.sns.SNSBean">
+	select*
+		from(
+			select rownum as rn,hs_no,hs_hm_id,hs_hm_nickname,hs_txt,hs_txt2,hs_txt3,hs_photo_front,hs_date
+			from (
+				select*
+				from hitea_sns,hitea_hash,hitea_teabag,hitea_teabagmember
+				where hs_no = hhash_hs_no and replace(hhash_text,'!') = #{content} and  replace(hhash_text,'!') = ht_name and ht_no = htm_tno and hs_hm_id = htm_id 
+				order by hs_date
+				)
+			) 
+		where rn &lt;=#{start} and rn &gt;=#{end}
+		order by rn desc
+	</select>
+	<select id="getTeaBagSNSCount" parameterType="com.ht.hitea.Inquiry" resultType="Integer">
+		select count(hs_no)
+		from hitea_sns,hitea_hash,hitea_teabag,hitea_teabagmember
+		where hs_no = hhash_hs_no and replace(hhash_text,'!') = #{content} and  replace(hhash_text,'!') = ht_name and ht_no = htm_tno and hs_hm_id = htm_id 
+		order by hs_date
+	</select>
+	<delete id="deleteTeabag" parameterType="com.ht.hitea.teabag.tb.Teabag">
+		delete from hitea_teabag where ht_no = #{ht_no}
+	</delete>
+</mapper>

@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+/* ********** Site Content Table ********** */
+.SiteContentTable {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 32px;
+	border-spacing: 0px;
+}
+
+.SiteContentTd1 {
+	width: 200px;
+}
+
+.SiteContentTd2 {
+	width: 500px;
+}
+
+.SiteContentTd3 {
+	width: 300px;
+}
+
+/* ********** Site Menu Table ********** */
+.SiteMenuArea{
+	position: fixed;
+	margin-left:15px;
+	top: 65px;
+	left: auto;
+	width: 50px;
+	border-spacing: 0px;
+}
+
+.SiteMenuButton,
+.SiteMenuButton::after {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.SiteMenuButton {
+	background: none;
+	border: 3px solid #274554;
+	border-radius: 5px;
+	color: #FAC03B;
+	display: block;
+	font-size: 1.3em;
+	font-weight: bold;
+	margin: 0.5em auto;
+	position: relative;
+	text-transform: uppercase;
+	width: 160px;
+	height: 70px;
+	cursor: pointer;
+	outline: none;
+}
+
+.SiteMenuButton:hover {
+	color: #fff;
+	border: 3px solid #FAC03B;
+}
+
+.SiteMenuButton::before,
+.SiteMenuButton::after {
+	background: #FAC03B;
+	content: '';
+	position: absolute;
+	z-index: -1;
+}
+
+.SiteMenuButton::before {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.SiteMenuButton::after {
+	background: #274554;
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.SiteMenuButton:hover:after {
+	height: 0;
+	left: 50%;
+	top: 50%;
+	width: 0;
+}
+
+

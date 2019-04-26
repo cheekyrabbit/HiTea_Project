@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+.memberMyPageFollowJSPTable{
+	width: 1000px;
+	border-spacing: 0px;
+}
+
+.memberMyPageFollowJSPTd{
+	width: 100%;
+	padding-left: 67px;
+	padding-top: 20px;
+}
+
+.memberFollowTable {
+	color: #274554;
+	width: 160px;
+	height: 200px;
+ 	float: left;
+	margin-left: 30px;	
+	margin-top: 20px;
+	margin-bottom: 20px;	
+	border: #274554 solid 2px;
+	border-radius: 10px;
+	border-spacing: 0px;
+	background-color: white;
+}
+
+.memberFollowPhotoFrontImg {
+	position: relative;
+	display: inline-block; 
+	width: 90px;
+	height: 90px;
+	border: #E0E0E0 solid 1px;
+	border-radius: 50%;
+}
+
+.memberFollowNicknameDiv {
+	color: #274554;
+	font-size: 13pt;
+	font-weight: 800;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.memberFollowSelfIntroductionDiv {
+	height: 30px;
+	font-size: 10pt;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

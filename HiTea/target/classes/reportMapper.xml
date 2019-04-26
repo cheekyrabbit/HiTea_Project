@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.hitea.report.ReportMapper">
+	<insert id="reportReg" parameterType="com.ht.hitea.report.Report">
+		insert into hitea_report values(hitea_report_seq.nextval,#{hr_this},#{hr_report_id},#{hr_text},#{hr_catego},sysdate)
+	</insert>
+	<select id="reportList" resultType="com.ht.hitea.report.Report">
+		select * from hitea_report order by hr_date
+	</select>
+</mapper>
